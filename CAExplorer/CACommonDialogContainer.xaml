@@ -1,0 +1,11 @@
+﻿<Window x:Class="CAExplorerNamespace.CACommonDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CAExplorerNamespace"
+    Title="" 
+    WindowStyle="SingleBorderWindow" 
+    WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" Name="windowCACommonDialog" ResizeMode="CanMinimize" DataContextChanged="windowCACommonDialog_DataContextChanged">
+    <Grid Name="gridCommonDialogContainer" Margin="1">
+        <ContentPresenter Content="{Binding}" HorizontalAlignment="Left" Margin="1" Name="dlgShownDialog" VerticalAlignment="Top" DockPanel.Dock="Top" />
+    </Grid>
+</Window>

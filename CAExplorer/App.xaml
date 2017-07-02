@@ -1,0 +1,23 @@
+﻿<Application x:Class="CAExplorer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="CAMainWindow_V.xaml"
+             xmlns:local="clr-namespace:CAExplorerNamespace">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type local:CAPropertiesDialogVM}">
+            <local:SetCAPropertiesDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:AppSettingsVM}">
+            <local:AppSettings/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:SetCAColorsVM}">
+            <local:SetCAColors/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:ViewHelpVM}">
+            <local:ViewHelp/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:AboutCAExplorerVM}">
+            <local:AboutCAExplorer/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

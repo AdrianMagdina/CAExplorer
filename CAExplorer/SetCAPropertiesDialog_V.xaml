@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="CAExplorerNamespace.SetCAPropertiesDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CAExplorerNamespace"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="450" Width="517" Height="461">
+    <UserControl.Resources>
+        <Style x:Key="textBoxStyle" TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}">
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Padding" Value="5,3,5,3"/>
+                    <Setter Property="Background" Value="LemonChiffon"/>
+                    <Setter Property="Foreground" Value="Blue"/>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Height="441" Width="491">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBox Style="{StaticResource textBoxStyle}" Text="{Binding Path=CAName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Height="23" HorizontalAlignment="Left" Margin="91,19,0,0" Name="tbCAName" VerticalAlignment="Top" Width="120" MaxLength="30" TabIndex="0" />
+        <Label Content="CA Name :" Height="28" HorizontalAlignment="Left" Margin="19,17,0,0" Name="lblCAName" VerticalAlignment="Top" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,406,150,0" Name="btnCancel" VerticalAlignment="Top" Width="75" IsCancel="True" TabIndex="11" />
+        <Button Content="Ok" Height="23" HorizontalAlignment="Left" Margin="168,406,0,0" Name="btnOk" VerticalAlignment="Top" Width="75" Command="{Binding Path=OkPushedCommand}" IsDefault="True" Click="btnOk_Click" TabIndex="10" />
+        <GroupBox Header="CA and Cell Size" Height="195" HorizontalAlignment="Left" Margin="16,144,0,0" Name="gbCAAndCellSize" VerticalAlignment="Top" Width="468">
+            <Grid Height="165">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250*" />
+                    <ColumnDefinition Width="196*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Rows :" HorizontalAlignment="Left" Margin="10,15,0,0" Name="lblRows" VerticalAlignment="Top" Grid.Column="1" Padding="1" />
+                <TextBox Style="{StaticResource textBoxStyle}" IsReadOnly="{Binding Path=ReadOnlyCAProperty}" Height="23" HorizontalAlignment="Left" Margin="93,14,0,0" Name="tbRows" VerticalAlignment="Top" Width="80" Grid.Column="1" MaxLength="3" TabIndex="4">
+                    <TextBox.Text>
+                        <Binding Path="CARows">
+                            <Binding.ValidationRules>
+                                <local:CAPropertiesDialogRowsValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Style="{StaticResource textBoxStyle}" IsReadOnly="{Binding Path=ReadOnlyCAProperty}" Height="23" HorizontalAlignment="Left" Margin="139,11,0,0" Name="tbColumns" VerticalAlignment="Top" Width="80" MaxLength="3" TabIndex="3">
+                        <TextBox.Text>
+                            <Binding Path="CAColumns">
+                                <Binding.ValidationRules>
+                                    <local:CAPropertiesDialogColumnsValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Content="Columns :" HorizontalAlignment="Left" Margin="10,15,0,0" Name="lblColumns" VerticalAlignment="Top" Padding="1" />
+                <Label Content="Cell Size X :" HorizontalAlignment="Left" Margin="10,50,0,0" Name="lblCellSizeX" VerticalAlignment="Top" Padding="1" />
+                <Label Content="Cell Size Y :" HorizontalAlignment="Left" Margin="10,50,0,0" Name="lblCellSizeY" VerticalAlignment="Top" Grid.Column="1" Padding="1" />
+                <Label Content="Grid Thickness :" Height="28" HorizontalAlignment="Left" Margin="10,90,0,0" Name="lblGridThickness" VerticalAlignment="Top" Padding="1" />
+                <Label Content="Selection Frame Thickness :" HorizontalAlignment="Left" Margin="10,125,0,0" Name="lblSelFrameThickness" VerticalAlignment="Top" Padding="1" />
+                <ComboBox ItemsSource="{Binding Path=CAGridThicknessItems, Mode=OneWay}" SelectedItem="{Binding Path=CAGridThicknessSelectedItem}" Height="23" HorizontalAlignment="Left" Margin="168,87,0,0" Name="cbCAGridThickness" VerticalAlignment="Top" Width="85" IsEnabled="True" SelectedIndex="0" Padding="4,3" TabIndex="7" />
+                <ComboBox ItemsSource="{Binding Path=CASelFrameThicknessItems, Mode=OneWay}" SelectedItem="{Binding Path=CASelFrameThicknessSelectedItem}" Height="23" HorizontalAlignment="Left" Margin="168,126,0,0" Name="cbSelectionFrameThickness" VerticalAlignment="Top" Width="85" IsEnabled="True" IsEditable="False" IsReadOnly="False" SelectedIndex="0" Padding="4,3" TabIndex="8" />
+                <TextBox Style="{StaticResource textBoxStyle}" Height="23" HorizontalAlignment="Left" Margin="139,50,0,0" Name="tbCellSizeX" VerticalAlignment="Top" Width="80" MaxLength="2" TabIndex="5">
+                    <TextBox.Text>
+                        <Binding Path="CACellSizeX">
+                            <Binding.ValidationRules>
+                                <local:CAPropertiesDialogCellSizeXValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Style="{StaticResource textBoxStyle}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="93,53,0,0" Name="tbCellSizeY" VerticalAlignment="Top" Width="80" MaxLength="2" TabIndex="6">
+                    <TextBox.Text>
+                        <Binding Path="CACellSizeY">
+                            <Binding.ValidationRules>
+                                <local:CAPropertiesDialogCellSizeYValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </Grid>
+        </GroupBox>
+        <Label Content="Set Initialization Method :" Height="28" HorizontalAlignment="Left" Margin="16,356,0,0" Name="lblSetInitializationMethod" VerticalAlignment="Top" />
+        <ComboBox ItemsSource="{Binding Path=CAGridCellInitializationItems, Mode=OneWay}" SelectedItem="{Binding Path=CAGridCellInitializationSelectedItem}" IsEnabled="{Binding Path=EnabledCAProperty, Mode=OneWay}" Height="23" HorizontalAlignment="Left" Margin="168,361,0,0" Name="cbSetInitializationMethod" VerticalAlignment="Top" Width="120" Padding="4,3" TabIndex="9" />
+        <GroupBox Header="CA Rule Setting" Height="87" HorizontalAlignment="Left" Margin="16,51,0,0" Name="gbCARuleSetting" VerticalAlignment="Top" Width="468">
+            <Grid Height="59">
+                <Label Content="CA Rule Family :" Height="28" HorizontalAlignment="Left" Margin="6,16,0,0" Name="lblCARuleFamily" VerticalAlignment="Top" />
+                <ComboBox ItemsSource="{Binding Path=CARuleFamilyItems, Mode=OneWay}" SelectedItem="{Binding Path=CARuleFamilySelectedItem}" IsEnabled="{Binding Path=EnabledCAProperty, Mode=OneWay}" Height="23" HorizontalAlignment="Left" Margin="108,16,0,0" Name="cbCARuleFamily" VerticalAlignment="Top" Width="120" TabIndex="1" StaysOpenOnEdit="False" />
+                <Label Content="CA Rule :" Height="28" HorizontalAlignment="Left" Margin="244,16,0,0" Name="lblCARule" VerticalAlignment="Top" />
+                <ComboBox ItemsSource="{Binding Path=CARuleItems, Mode=OneWay}" SelectedItem="{Binding Path=CARuleSelectedItem, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" IsEnabled="{Binding Path=EnabledCAProperty, Mode=OneWay}" Height="23" HorizontalAlignment="Left" Margin="313,16,0,0" Name="cbCARule" VerticalAlignment="Top" Width="120" TabIndex="2" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

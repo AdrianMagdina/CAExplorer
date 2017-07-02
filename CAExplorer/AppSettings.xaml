@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="CAExplorerNamespace.AppSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="548" d:DesignWidth="425" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    <Grid Height="529" Width="406">
+        <GroupBox Header="Default CA and Cell Colors" Height="166" HorizontalAlignment="Left" Margin="10,24,0,0" Name="gbDefaultCAGridAndCellColors" VerticalAlignment="Top" Width="384">
+            <Grid>
+                <Label Content="Default Selection Frame Color :" HorizontalAlignment="Left" Margin="5,35,0,0" Name="lblDefaultSelectionFrameColor" VerticalAlignment="Top" Padding="1" />
+                <Label Content="Default Marking Color :" HorizontalAlignment="Left" Margin="5,60,0,0" Name="lblDefaultMarkingColor" VerticalAlignment="Top" Padding="1" />
+                <Label Content="Default Mouse Over Color :" HorizontalAlignment="Left" Margin="5,85,0,0" Name="lblDefaultMouseOverColor" VerticalAlignment="Top" Padding="1" />
+                <Label Content="Default Grid Color :" HorizontalAlignment="Left" Margin="5,10,0,0" Name="lblDefaultGridColor" VerticalAlignment="Top" Padding="1" />
+                <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="185,6,0,0" Name="cbDefaultChangeGridColor" SelectedColor="{Binding Path=SelectedDefaultGridColor}" VerticalAlignment="Top" TabIndex="0" />
+                <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="185,32,0,0" Name="cbDefaultChangeSelectionFrameColor" SelectedColor="{Binding Path=SelectedDefaultSelectionFrameColor}" VerticalAlignment="Top" TabIndex="1" />
+                <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="185,59,0,0" Name="cbDefaultChangeMarkingColor" SelectedColor="{Binding Path=SelectedDefaultMarkingColor}" VerticalAlignment="Top" TabIndex="2" />
+                <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="185,85,0,36" Name="cbDefaultChangeMouseOverColor" SelectedColor="{Binding Path=SelectedDefaultMouseOverColor}" TabIndex="3" />
+                <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="185,111,0,0" Name="cbDefaultChangeBackgroundColor" SelectedColor="{Binding Path=SelectedDefaultBackgroundColor}" VerticalAlignment="Top" TabIndex="4" />
+                <Label Content="Default Background Color :" HorizontalAlignment="Left" Margin="5,110,0,0" Name="lblDefaultBackgroundColor" VerticalAlignment="Top" Padding="1" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Default State Colors" Height="269" HorizontalAlignment="Left" Margin="10,204,0,0" Name="gbSetStateColors" VerticalAlignment="Top" Width="384">
+            <Grid Height="239">
+                <GroupBox Header="Default Direct State Colors" Height="106" HorizontalAlignment="Left" Margin="8,6,0,0" Name="gbSetStateColorsDirectly" VerticalAlignment="Top" Width="357">
+                    <Grid Height="79">
+                        <ScrollViewer HorizontalAlignment="Stretch" Margin="1" Name="scrollViewerDefaultStateColors" VerticalAlignment="Stretch" CanContentScroll="True" VerticalScrollBarVisibility="Auto" Padding="1" HorizontalContentAlignment="Left">
+                            <ItemsControl ItemsSource="{Binding Path=DefaultStateColorsCollection, Mode=OneWay}" Margin="1" TabIndex="5">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="1" SelectedColor="{Binding Path=StateColor}" VerticalAlignment="Top" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Vertical" Margin="1" Name="stackPanelDefaultDirectColors" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Default Interpolated Colors" Height="98" HorizontalAlignment="Left" Margin="8,127,0,0" Name="gbSetStateColorsInterp" VerticalAlignment="Top" Width="357">
+                    <Grid>
+                        <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="140,8,0,0" Name="cbDefaultInterpolatedStartColor" SelectedColor="{Binding Path=SelectedDefaultStartInterpColor}" VerticalAlignment="Top" TabIndex="6" />
+                        <xctk:ColorPicker DisplayColorAndName="True" HorizontalAlignment="Left" Margin="140,36,0,0" Name="cbDefaultInterpolatedEndColor" SelectedColor="{Binding Path=SelectedDefaultEndInterpColor}" VerticalAlignment="Top" TabIndex="7" />
+                        <Label Content="Default Start Color :" HorizontalAlignment="Left" Margin="10,6,0,0" Name="lblDefaultStartColor" VerticalAlignment="Top" />
+                        <Label Content="Default End Color :" HorizontalAlignment="Left" Margin="10,34,0,0" Name="lblDefaultEndColor" VerticalAlignment="Top" />
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+        <Button Command="{Binding Path=OkPushedCommand}" Content="Ok" Height="23" HorizontalAlignment="Left" IsDefault="True" Margin="112,494,0,0" Name="btnOk" VerticalAlignment="Top" Width="75" Click="btnOk_Click" TabIndex="8" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Right" IsCancel="True" Margin="0,494,121,0" Name="btnCancel" VerticalAlignment="Top" Width="75" TabIndex="9" />
+    </Grid>
+</UserControl>
