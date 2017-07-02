@@ -1,0 +1,96 @@
+{\rtf1\ansi\ansicpg1250\deff0\deflang1051{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil\fcharset238{\*\fname Arial;}Arial CE;}{\f2\fnil\fcharset0 Calibri;}{\f3\fnil\fcharset2 Symbol;}}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\qc\lang1033\b\fs36 Cellular Automaton Explorer Help\fs32\par
+\pard\sa200\sl276\slmult1\b0\fs24\par
+In this application it is possible to simulate cellular automatons with different rule families and rules.\par
+The user interface of this application and how to use it will \lang1051\f1 be \lang1033\f0 now\lang1051\f1  \lang1033\f0 described :\par
+\b\i\par
+Listbox with available cellular automatons\b0\i0\par
+In the upper left area is a listbox where all currently available cellular automatons are shown.\par
+After click on some cellular automaton in the listbox this cellular automaton will be selected.\par
+\par
+\b\i Buttons for working with the list of cellular automatons\b0\i0\par
+In the lower left area are 6 buttons, that can be used to modify the list of cellular automatons. Following operations are possible :\par
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Add New CA - this buttons shows dialog for configuration of basic properties of new CA, and then creates the new CA.\par
+{\pntext\f3\'B7\tab}Set CA Colors - the newly created CA has default colors set up. It is possible to change colors after pressing this button. \lang1051\f1 The\lang1033\f0  dialog appears\lang1051\f1 , \lang1033\f0 where it is possible to change colors of different CA elements.\par
+{\pntext\f3\'B7\tab}Modify Selected CA - the currently selected CA can be modified after pressing this button. The dialog then appears, where the properties of selected CA can be modified.\par
+{\pntext\f3\'B7\tab}Move Selected CA Up - currently selected CA will be moved up in the cellular automatons list after pressing this button.\par
+{\pntext\f3\'B7\tab}Move Selected CA Down - currently selected CA will be moved down in the cellular automatons list after pressing this button.\par
+{\pntext\f3\'B7\tab}Delete Selected CA - currently selected CA will be deleted. If the CA was already written on the disk, the selected CA will be deleted from disk as well!\par
+\pard\li360\sa200\sl276\slmult1\par
+\b\i\fs28 Cellular automaton simulation area\b0\i0\fs24\par
+In the central area is the space where the current state of selected CA is shown. Here runs \lang1051\f1 the\lang1033\f0  simulation of currently selected CA\lang1051\f1 . To see the CA state, a CA must be selected in the listbox in the upper left \lang1031\f0 area!\par
+After selection of the CA in the lis\lang1051\f1 t of cellular automatons\lang1031\f0  the \lang1051\f1 current state of this CA\lang1031\f0  will be shown in the CA area. The CA consists of a grid of cells. \par
+Each cell has its column\lang1051\f1 , \lang1031\f0 row and its state. \par
+After moving mouse pointer over cells the cell over which the mouse pointer is currently \lang1051\f1 positioned is highlighted \lang1033\f0 (a frame of chosen color will appear around the cell).\par
+After pressing left mouse button over a cell in the CA area - this cell becomes selected (a frame of chosen color will appear around the cell).\par
+\par
+\b\i\fs28 Cell data and cell state change area\b0\i0\fs24\par
+In the right area is shown the data of currently selected cell. \par
+At the top are two fields where is shown x - column and y - row of currently selected cell. \par
+Under these two fields is shown the current state of the currently selected cell.\par
+Even more below are two fields where new state value can be set. If there are few possible state combobox is enabled - there can be the new state value chosen. If there are more possible\lang1051\f1  states\lang1033\f0 , editbox is enabled - there can be written the new state value.\par
+Under these two fields is the button "Commit New State", after pressing of this button is the new state that was set in the former fields commited to the CA, and is shown in the CA simulation area.\par
+At the bottom of this area is the "Is Cell Marked" checkbox, after checking this checkbox is the currently selected cell marked (a frame of chosen color will appear around all marked cells).\par
+\b\i\fs28 Iteration (generation) control area\b0\i0\fs24\par
+In the central bottom area are the fields for controlling the current iteration of the selected CA and the change of iteration of selected CA.\par
+With the button "Play" is started the simulation of the currently selected CA. After a time interval the iteration will be\lang1051\f1  repeatedly\lang1033\f0  increased by one.\par
+With the button "Stop" the simulation will be stoped. There will be no iteration change.\par
+With the button "Step backward" can be iteration decreased by one (the last iteration will be shown), but only if that iteration is stored in memory.\par
+With the button "Step forward" can be iteration increased by one (next iteration will be shown).\par
+With the "Speed" slider the speed of iteration change in the running CA (after pressing "Play") can be changed.\par
+With the "Step" slider can be moved between different iterations that are in the memory (only last hundred iterations that already ran are stored in the memory).\par
+\b\i\fs28 Status Bar area\b0\i0\fs24\par
+In this area is written the name, rule family and rule of the currently selected CA.\par
+\par
+\b\i\fs28 Main menu\b0\i0\fs24\par
+Most formerly described \lang1051\f1 use cases c\lang1033\f0 an be done from main menu as well.\par
+Additionaly\lang1051\f1 ,\lang1033\f0  from main menu can be the dialogs started. The dialogs which can be started from main menu will be now described.\par
+\par
+\b\i\fs28 Load CA from file dialog\b0\i0\fs24\par
+After starting this dialog from main menu the CA file can be found and chosen. This file\lang1051\f1 ,\lang1033\f0  if loaded\lang1051\f1 , \lang1033\f0 will be added to \lang1051\f1 the \lang1033\f0 cellular automaton list.\par
+\par
+\b\i\fs28 Save selected CA to file\b0\i0\fs24\par
+After starting this dialog from main menu, the directory (place) where the currently selected CA will be saved must be found. The selected CA will be saved to this place if ok button is pressed.\par
+\par
+\b\i\fs28 Load background from file\b0\i0\fs24\par
+After starting this dialog from main menu, the image file can be found and chosen. After pressing \lang1051\f1 ok \lang1033\f0 the image file will appear in selected CA area. (the A channel of chosen CA colors must be set to transparent\lang1051\f1  \lang1033\f0 - to see the image!).\par
+\par
+\b\i\fs28 Add new CA and modify selected CA\b0\i0\fs24\par
+After choosing these 2 menu items the CA properties dialog will be shown. In this dialog the basic properties of CA are set :\par
+CA name - the name of CA, this name must be unique among the cellular automatons in the CA list.\par
+CA rule family - the rule family of CA\par
+CA rule - the rule of CA\par
+Columns - how many columns has the CA\par
+Rows - how many rows has the CA\par
+Cell size X - the horizontal size of cell\par
+Cell size Y - the vertical size of cell\par
+Grid thickness - the thickness of grid of CA\par
+Selection frame thickness - the thickness of frame around cell in CA\par
+Set initialization method - the method of initialization that will be used for starting cell states in CA\par
+\par
+\b\i\fs28 Set \lang1051\f1 CA\lang1033\f0  colors in selected CA\b0\i0\fs24\par
+After choosing this menu item "Set CA colors" dialog will be shown. In this dialog the colors used in CA can be set. There are following colors which can be set :\par
+Grid color - the color of grid of CA\par
+Selection frame color - the color of frame if cell is selected\par
+Marking color - the color of frame if cell is marked\par
+Is mouse over color - the color of frame if mouse pointer is currently over cell\par
+Background color - the color of frame if cell is neither selected nor marked and mouse pointer is not currently over cell\par
+Set state colors directly and Set state colors interpolated :\par
+With these 2 comboboxes it can be chosen if the colors of different cell states will be directly set (each state has different chosen color), or cell states will be linearly interpolated between two chosen colors\par
+ (if there are many states the direct setting of state color is not possible!)\par
+\par
+\b\i\fs28 Application settings\b0\i0\fs24\par
+After choosing this menu item "Application settings" dialog will be shown. In this dialog the default CA colors can be set.\par
+\lang1051\f1 Every color used in CA has its \lang1033\f0 default color. Default color will be used for initialization of colors of new CA. It means that every new created CA will have colors set to default colors.\par
+\par
+\b\i\fs28 View Help\b0\i0\fs24\par
+After choosing this menu item "Help" dialog will be shown. In this dialog help with explanation of how to use this application is written.\par
+\par
+\b\i\fs28 About CA Explorer\b0\i0\fs24\par
+After choosing this menu item "About CA Explorer" dialog  will be shown. In this dialog is the description of basic information about this application.\par
+\par
+Adrian Magdina,\par
+2013\par
+\f2\fs22\par
+}
+ 
