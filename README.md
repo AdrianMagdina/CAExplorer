@@ -1,1 +1,1 @@
-# CAExplorer
+# Cellular automaton explorer
