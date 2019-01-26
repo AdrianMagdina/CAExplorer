@@ -3,8 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CAExplorerNamespace
 {
@@ -17,18 +15,6 @@ namespace CAExplorerNamespace
 
         private CellM()
         {
-        }
-
-        public CellM(int xIn, int yIn, int countOfStatesIn)
-            : this()
-        {
-            myCellStates = new List<int>();
-            myNeighborhoodCells = new List<CellM>();
-
-            myX = xIn;
-            myY = yIn;
-
-            myCountOfStates = countOfStatesIn;
         }
 
         public CellM(int currentCellStateIn, int xIn, int yIn, int countOfStatesIn)

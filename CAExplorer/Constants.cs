@@ -1,11 +1,6 @@
 ﻿// programmed by Adrian Magdina in 2013
 // in this file is the implementation of constants.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace CAExplorerNamespace
 {
     //constant values that are used in this application are defined here.
@@ -79,7 +74,7 @@ namespace CAExplorerNamespace
         {
             get
             {
-                return 100;
+                return 200;
             }
         }
 
@@ -87,7 +82,15 @@ namespace CAExplorerNamespace
         {
             get
             {
-                return 10;
+                return 20;
+            }
+        }
+
+        public static int DefaultCAColumns
+        {
+            get
+            {
+                return 70;
             }
         }
 
@@ -95,7 +98,7 @@ namespace CAExplorerNamespace
         {
             get
             {
-                return 100;
+                return 200;
             }
         }
 
@@ -103,7 +106,15 @@ namespace CAExplorerNamespace
         {
             get
             {
-                return 10;
+                return 20;
+            }
+        }
+
+        public static int DefaultCARows
+        {
+            get
+            {
+                return 70;
             }
         }
 
@@ -116,6 +127,14 @@ namespace CAExplorerNamespace
         }
 
         public static int MinCellSizeX
+        {
+            get
+            {
+                return 3;
+            }
+        }
+
+        public static int DefaultCellSizeX
         {
             get
             {
@@ -135,9 +154,16 @@ namespace CAExplorerNamespace
         {
             get
             {
-                return 5;
+                return 3;
             }
         }
 
+        public static int DefaultCellSizeY
+        {
+            get
+            {
+                return 5;
+            }
+        }
     }
 }

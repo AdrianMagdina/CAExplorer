@@ -2,9 +2,6 @@
 // in this file is the implementation of classes that do the initialization of CA Grid
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CAExplorerNamespace
 {
@@ -104,7 +101,7 @@ namespace CAExplorerNamespace
                         aRandomNumber = aRandom.Next(0, countOfStatesIn);
                     }
 
-                    var aCellModel = new CellM(aRandomNumber, column, row);
+                    var aCellModel = new CellM(aRandomNumber, column, row, countOfStatesIn);
 
                     cellsMIn[column, row] = aCellModel;
                 }
@@ -136,7 +133,7 @@ namespace CAExplorerNamespace
             //going through all cells and setting the appropriate value.
             for (int column = 0; column < cellsMIn.GetLength(0); column++)
             {
-                for (int row = 0; row < aUpToRow; row++)
+                for (int row = 0; row < cellsMIn.GetLength(1); row++)
                 {
                     int aRandomNumber = 0;
 
@@ -192,7 +189,7 @@ namespace CAExplorerNamespace
                         aRandomNumber = aRandom.Next(0, countOfStatesIn);
                     }
 
-                    var aCellModel = new CellM(aRandomNumber, column, row);
+                    var aCellModel = new CellM(aRandomNumber, column, row, countOfStatesIn);
 
                     cellsMIn[column, row] = aCellModel;
                 }
